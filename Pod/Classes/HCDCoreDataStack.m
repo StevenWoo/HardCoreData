@@ -31,11 +31,13 @@
     return [self stackWithModelName:modelName storeType:NSInMemoryStoreType];
 }
 
+#ifdef __MAC_OS_X_VERSION_MAX_ALLOWED
 #if MAC_OS_X_VERSION_MIN_REQUIRED > MAC_OS_X_VERSION_10_4
 + (instancetype)XMLStackWithName:(NSString *)modelName
 {
     return [self stackWithModelName:modelName storeType:NSXMLStoreType];
 }
+#endif
 #endif
 
 + (instancetype)sqliteStackWithName:(NSString *)modelName
